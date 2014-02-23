@@ -111,12 +111,12 @@ public class HandlerRegistrationTest {
 		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
 		
 		registry.deregister(reg);
-		reg = registry.find(path);
+		reg = registry.find(path.toString());
 		
 		assertNotEquals("failure - the handler should be deregistered", reg.getHandler(), testHandler);
 		assertEquals("failure - the handler should be the default handler after deregistration", 
 				reg.getHandler(), 
-				registry.find(new RESTfulPath("/")).getHandler());
+				registry.find("/").getHandler());
 	}
 
 	@Test
@@ -125,12 +125,12 @@ public class HandlerRegistrationTest {
 		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
 		
 		registry.deregister("/junit/test");
-		reg = registry.find(path);
+		reg = registry.find(path.toString());
 		
 		assertNotEquals("failure - the handler should be deregistered", reg.getHandler(), testHandler);
 		assertEquals("failure - the handler should be the default handler after deregistration", 
 				reg.getHandler(), 
-				registry.find(new RESTfulPath("/")).getHandler());
+				registry.find("/").getHandler());
 	}
 
 	@Test
@@ -139,34 +139,14 @@ public class HandlerRegistrationTest {
 		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
 		
 		registry.deregister(path);
-		reg = registry.find(path);
+		reg = registry.find(path.toString());
 		
 		assertNotEquals("failure - the handler should be deregistered", 
 				reg.getHandler(), 
 				testHandler);
 		assertEquals("failure - the handler should be the default handler after deregistration", 
 				reg.getHandler(), 
-				registry.find(new RESTfulPath("/")).getHandler());
-	}
-
-	@Test
-	public void testGetHandlerRegistrationRESTfulPath() {
-		RESTfulPath path = new RESTfulPath("/junit/test");
-		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
-		
-		assertEquals("failure - the registration instance should be same", 
-				reg, 
-				registry.getHandlerRegistration(path));
-	}
-
-	@Test
-	public void testGetHandlerRegistrationString() {
-		RESTfulPath path = new RESTfulPath("/junit/test");
-		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
-		
-		assertEquals("failure - the registration instance should be same", 
-				reg, 
-				registry.getHandlerRegistration("/junit/test"));
+				registry.find("/").getHandler());
 	}
 
 	@Test
@@ -176,7 +156,7 @@ public class HandlerRegistrationTest {
 		
 		assertEquals("failure - the registration instance should be same", 
 				reg, 
-				registry.find(new RESTfulPath("/junit/test")));
+				registry.find("/junit/test"));
 	}
 	
 	@Test
@@ -184,12 +164,12 @@ public class HandlerRegistrationTest {
 		RESTfulPath path = new RESTfulPath("/junit/test");
 		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
 		
-		RESTfulHandlerRegistration ascReg = registry.find(new RESTfulPath("/junit"));
+		RESTfulHandlerRegistration ascReg = registry.find("/junit");
 		
 		assertNotEquals("failure - the registration should not be same", reg, ascReg);
 		assertEquals("failure - the ascendant handler should be the default one",
 				ascReg.getHandler(),
-				registry.find(new RESTfulPath("/")).getHandler());
+				registry.find("/").getHandler());
 	}
 	
 	@Test
@@ -197,7 +177,7 @@ public class HandlerRegistrationTest {
 		RESTfulPath path = new RESTfulPath("/junit");
 		RESTfulHandlerRegistration reg = registry.register(path, testHandler);
 		
-		RESTfulHandlerRegistration descReg = registry.find(new RESTfulPath("/junit/test"));
+		RESTfulHandlerRegistration descReg = registry.find("/junit/test");
 		
 		assertNotEquals("failure - the registration should not be same", reg, descReg);
 		assertEquals("failure - the descendant handler should be same one",

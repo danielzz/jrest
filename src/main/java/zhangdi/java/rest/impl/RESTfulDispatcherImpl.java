@@ -29,7 +29,7 @@ public class RESTfulDispatcherImpl implements RESTfulDispatcher {
 			RequestMethod method) throws IOException, ServletException {
 		RESTfulContext context = buildContext(req, res, method);
 		RESTfulPath path = context.getPath();
-		RESTfulHandlerRegistration reg = handlers.find(path);
+		RESTfulHandlerRegistration reg = handlers.find(path.toString());
 		
 		if (reg == null) {
 			// 404

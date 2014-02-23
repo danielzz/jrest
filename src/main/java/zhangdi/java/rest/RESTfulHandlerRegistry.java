@@ -83,16 +83,14 @@ public interface RESTfulHandlerRegistry {
 	
 	void deregister(RESTfulPath path);
 	
-	RESTfulHandlerRegistration getHandlerRegistration(RESTfulPath path);
-	
-	RESTfulHandlerRegistration getHandlerRegistration(String path);
-	
 	/**
 	 * Convenient method to find a handler for a given path.
 	 * 
 	 * @param path
 	 * @return
 	 */
+	RESTfulHandlerRegistration find(String path);
+	
 	RESTfulHandlerRegistration find(RESTfulPath path);
 	
 	void clear();

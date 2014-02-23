@@ -32,10 +32,6 @@ public class TokenTree {
 		this.root.setHandler(this.notFoundHandler);
 	}
 	
-	public void setNotFoundHandler(RESTfulHandler handler) {
-		this.notFoundHandler = handler;
-	}
-	
 	public void addNode(RESTfulPath path, RESTfulHandler handler) {
 		if (path.size() == 0) {
 			this.setDefaultHandler(handler);

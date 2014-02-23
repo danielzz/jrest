@@ -62,8 +62,7 @@ public class RESTfulHandlerRegistryImpl implements RESTfulHandlerRegistry {
 		this.cache.remove(path);
 	}
 
-	@Override
-	public RESTfulHandlerRegistration getHandlerRegistration(RESTfulPath path) {
+	private RESTfulHandlerRegistration getHandlerRegistration(RESTfulPath path) {
 		RESTfulHandlerRegistration reg = cache.get(path);
 		if (reg != null) {
 			return reg;
@@ -81,10 +80,10 @@ public class RESTfulHandlerRegistryImpl implements RESTfulHandlerRegistry {
 	}
 
 	@Override
-	public RESTfulHandlerRegistration getHandlerRegistration(String path) {
-		return this.getHandlerRegistration(new RESTfulPath(path));
+	public RESTfulHandlerRegistration find(String path) {
+		return this.find(new RESTfulPath(path));
 	}
-
+	
 	@Override
 	public RESTfulHandlerRegistration find(RESTfulPath path) {
 		return this.getHandlerRegistration(path);
