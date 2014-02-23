@@ -1,4 +1,4 @@
-package zhangdi.java.rest;
+package zhangdi.java.rest.template;
 
 import java.io.InputStream;
 import java.io.Reader;

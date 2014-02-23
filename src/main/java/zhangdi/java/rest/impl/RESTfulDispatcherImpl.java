@@ -13,7 +13,7 @@ import zhangdi.java.rest.RESTfulHandlerRegistration;
 import zhangdi.java.rest.RESTfulHandlerRegistry;
 import zhangdi.java.rest.RESTfulPath;
 import zhangdi.java.rest.RequestMethod;
-import zhangdi.java.rest.TemplateEngine;
+import zhangdi.java.rest.template.TemplateEngine;
 
 public class RESTfulDispatcherImpl implements RESTfulDispatcher {
 	

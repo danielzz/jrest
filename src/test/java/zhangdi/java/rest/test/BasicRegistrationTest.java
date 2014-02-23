@@ -2,59 +2,22 @@ package zhangdi.java.rest.test;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import zhangdi.java.rest.RESTfulContext;
 import zhangdi.java.rest.RESTfulHandler;
 import zhangdi.java.rest.RESTfulHandlerRegistration;
 import zhangdi.java.rest.RESTfulPath;
 import zhangdi.java.rest.impl.RESTfulHandlerRegistrationImpl;
 import zhangdi.java.rest.impl.RESTfulHandlerRegistryImpl;
 
-public class HandlerRegistrationTest {
+public class BasicRegistrationTest {
 	
 	static RESTfulHandlerRegistryImpl registry;
 	static RESTfulHandler testHandler;
-	
-	static class TestHandler implements RESTfulHandler {
-
-		@Override
-		public void handleGet(RESTfulContext context) throws IOException,
-				ServletException {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void handlePost(RESTfulContext context) throws IOException,
-				ServletException {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void handlePut(RESTfulContext context) throws IOException,
-				ServletException {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void handleDelete(RESTfulContext context) throws IOException,
-				ServletException {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
 	
 	@BeforeClass
 	public static void setUpClass() {

@@ -5,6 +5,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import zhangdi.java.rest.template.Template;
+import zhangdi.java.rest.template.TemplateEngine;
+
 /**
  * This class wraps the HttpServletRequest and HttpServletResponse.
  * 
