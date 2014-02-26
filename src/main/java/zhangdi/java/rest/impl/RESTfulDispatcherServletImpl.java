@@ -52,7 +52,12 @@ public class RESTfulDispatcherServletImpl extends RESTfulDispatcherServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-		this.dispatch(req, res, RequestMethod.POST);
+		if (this.usePostWorkaround()) {
+			RequestMethod method = this.getUnderlyingMethodForPost(req, res);
+			this.dispatch(req, res, method);
+		} else {
+			this.dispatch(req, res, RequestMethod.POST);
+		}
 	}
 	
 	@Override
