@@ -1,14 +1,14 @@
 package zhangdi.java.rest.template;
 
-import java.io.InputStream;
-import java.io.Reader;
+import java.io.OutputStream;
+import java.io.Writer;
 
 public interface Template {
 	void add(String key, Object value);
 	
 	String getResult();
 	
-	InputStream getInputStream();
+	void write(Writer writer);
 	
-	Reader getReader();
+	void write(OutputStream os, String encoding);
 }
