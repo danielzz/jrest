@@ -1,5 +1,6 @@
 package zhangdi.java.rest;
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,15 +64,15 @@ public interface RESTfulContext {
 	 */
 	Template getTemplate(String key);
 	
-	void sendHTML(String html);
+	void sendHTML(String html) throws IOException;
 	
-	void sendHTML(Template tpl, Map<String, Object> params);
+	void sendHTML(Template tpl, Map<String, Object> params) throws IOException;
 	
-	void sendJSON(String json);
+	void sendJSON(String json) throws IOException;
 	
-	void sendJSON(Template tpl, Map<String, Object> params);
+	void sendJSON(Template tpl, Map<String, Object> params) throws IOException;
 	
-	void sendError(int ec, String message);
+	void sendError(int ec, String message) throws IOException;
 	
-	void sendRedirect(String url);
+	void sendRedirect(String url) throws IOException;
 }
